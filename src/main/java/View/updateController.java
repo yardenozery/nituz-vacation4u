@@ -4,12 +4,21 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/*
+    The class describes how user is updated in the system.
+ */
 public class updateController extends generalController {
 
     public javafx.scene.control.Button btn_update;
     public javafx.scene.control.Label txtfld_usrExists;
     private String oldUserName;
 
+    /**
+     * The method update a user in the system.
+     *
+     * @param event
+     * @throws IOException
+     */
     public void update(javafx.event.ActionEvent event) throws IOException {
 
         String[] checkUserTaken = controller.ReadUser(txtfld_userName.getText());
@@ -38,6 +47,9 @@ public class updateController extends generalController {
 
     }
 
+    /**
+     * the function check if the given username exist in the database
+     */
     public void searchForUpdate(){
         search();
         if(searchsuccess){

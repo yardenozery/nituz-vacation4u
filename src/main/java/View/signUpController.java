@@ -4,11 +4,19 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/*
+    The class describes how user is signing up to the system.
+ */
 public class signUpController extends generalController {
 
     //public javafx.scene.control.Label txtfld_usrIsAlreadyExists;
 
-
+    /**
+     * The method added a user from the system.
+     *
+     * @param event
+     * @throws IOException
+     */
     public void SignUp(javafx.event.ActionEvent event)  throws IOException {
         String[] checkUserTaken = controller.ReadUser(txtfld_userName.getText());
 

@@ -6,8 +6,18 @@ import javafx.scene.control.ButtonType;
 import java.io.IOException;
 import java.util.Optional;
 
+/*
+    The class describes how user is removed from the system.
+ */
 public class deleteController extends generalController {
 
+
+    /**
+     * The method deletes a user from the system.
+     *
+     * @param event
+     * @throws IOException
+     */
     public void delete(javafx.event.ActionEvent event) throws IOException {
 
         String[] checkUserTaken = controller.ReadUser(txtfld_userName.getText());

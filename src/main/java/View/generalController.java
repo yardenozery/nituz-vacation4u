@@ -11,6 +11,11 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+
+/*
+    An abstract class that all the controllers extends from.
+    All the field of thr users saves in this class.
+ */
 public abstract class generalController {
 
     protected static Controller controller;
@@ -25,10 +30,22 @@ public abstract class generalController {
     public javafx.scene.control.TextField txtfld_userCity;
 
 
+    /**
+     * set the controller to be used.
+     *
+     * @param controller - the controller of the project. one controller for all the class.
+     */
     public void setController(Controller controller){
         this.controller = controller;
     }
 
+    /**
+     * The method checks if the fields that the user want to enter are valid.
+     *
+     * @param event
+     * @param checkFields - boolean array that containes the fields of the user.
+     * @throws IOException
+     */
     public void checkUserParams(javafx.event.ActionEvent event, boolean[] checkFields)  throws IOException {
         boolean wasAdded = true;
 
@@ -58,6 +75,9 @@ public abstract class generalController {
 
     }
 
+    /*
+        Change to main scene.
+     */
     public void changeToMainMenuScene(javafx.event.ActionEvent event) throws IOException {
         Parent addSceneParent = FXMLLoader.load(getClass().getClassLoader().getResource("MainMenu.fxml"));
         addSceneParent.getStylesheets().add(getClass().getClassLoader().getResource("ViewStyle.css").toExternalForm());
@@ -68,6 +88,9 @@ public abstract class generalController {
     }
 
 
+    /*
+        The method search a user from the database.
+     */
     public void search(){
         String[] userDetails = controller.ReadUser(txtfld_userName.getText());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
