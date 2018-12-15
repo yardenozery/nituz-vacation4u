@@ -5,9 +5,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.mainMenuController">
    <children>
-      <Button layoutX="31.0" layoutY="150.0" mnemonicParsing="false" onAction="#changeToDeleteScene" prefHeight="31.0" prefWidth="124.0" text="delete user" />
-      <Button layoutX="31.0" layoutY="70.0" mnemonicParsing="false" onAction="#changeToSearchScene" prefHeight="31.0" prefWidth="124.0" text="search user" />
-      <Button layoutX="31.0" layoutY="109.0" mnemonicParsing="false" onAction="#changeToUpdateScene" prefHeight="31.0" prefWidth="124.0" text="update user" />
-      <Button layoutX="31.0" layoutY="32.0" mnemonicParsing="false" onAction="#changeToSignUpScene" prefHeight="31.0" prefWidth="124.0" text="add user" />
+      <Button layoutX="31.0" layoutY="126.0" mnemonicParsing="false" onAction="#changeToDeleteScene" prefHeight="31.0" prefWidth="124.0" text="delete user" />
+      <Button layoutX="31.0" layoutY="45.0" mnemonicParsing="false" onAction="#changeToSearchScene" prefHeight="31.0" prefWidth="124.0" text="search user" />
+      <Button layoutX="31.0" layoutY="86.0" mnemonicParsing="false" onAction="#changeToUpdateScene" prefHeight="31.0" prefWidth="124.0" text="update user" />
+      <Button layoutX="238.0" layoutY="45.0" mnemonicParsing="false" onAction="#changeToSearchVacationScene" prefHeight="31.0" prefWidth="124.0" text="search vacation" />
+      <Button layoutX="31.0" layoutY="242.0" mnemonicParsing="false" onAction="#changeToHomePageScene" text="Log Out" />
+      <Button layoutX="238.0" layoutY="89.0" mnemonicParsing="false" onAction="#changeToCreateVacation" prefHeight="31.0" prefWidth="124.0" text="create vacation" />
+      <Button layoutX="238.0" layoutY="126.0" mnemonicParsing="false" onAction="#changeToMailboxScene" prefHeight="31.0" prefWidth="124.0" text="Mailbox" />
    </children>
 </AnchorPane>

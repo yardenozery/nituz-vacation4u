@@ -24,11 +24,13 @@
          <children>
             <Label text="username" />
             <TextField fx:id="txtfld_userName" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" onAction="#changeToMainMenuScene" text="back" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#delete" text="delete" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#changeToMainMenuScene" text="back" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#delete" text="delete" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="password" GridPane.rowIndex="1" />
+            <TextField fx:id="txtfld_userPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-       <Label fx:id="txtfld_usrIsntExists" layoutX="20.0" layoutY="216.0" prefHeight="50.0" prefWidth="507.0" text="The user name is not exists in the system." visible="false">
+       <Label fx:id="txtfld_usrIsntExists" layoutX="20.0" layoutY="216.0" prefHeight="50.0" prefWidth="507.0" text="Wrong details. Please try again." visible="false">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>

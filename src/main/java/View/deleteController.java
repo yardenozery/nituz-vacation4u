@@ -21,7 +21,7 @@ public class deleteController extends generalController {
     public void delete(javafx.event.ActionEvent event) throws IOException {
 
         String[] checkUserTaken = controller.ReadUser(txtfld_userName.getText());
-        if (checkUserTaken.length == 1) {
+        if (checkUserTaken.length == 1 || !txtfld_userPassword.getText().equals(checkUserTaken[1])) {
             txtfld_usrIsntExists.setVisible(true);
 
         } else {
@@ -30,7 +30,7 @@ public class deleteController extends generalController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 controller.DeleteUser(txtfld_userName.getText());
-                changeToMainMenuScene(event);
+                changeToHomePageScene(event);
             } else {
                 alert.close();
             }

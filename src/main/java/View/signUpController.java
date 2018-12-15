@@ -22,7 +22,7 @@ public class signUpController extends generalController {
 
         if(datefld_userBirthday.getValue() == null){
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate localDate = LocalDate.parse("2000-01-01", formatter);
+            LocalDate localDate = LocalDate.parse("2018-01-01", formatter);
             datefld_userBirthday.setValue(localDate);
         }
 
@@ -36,6 +36,7 @@ public class signUpController extends generalController {
             txtfld_userCity.setStyle("");
 
             checkUserParams(event, checkFields);
+            //currentUserName = txtfld_userName.getText(); // change inside to checkUserParams
 
         }
         else{

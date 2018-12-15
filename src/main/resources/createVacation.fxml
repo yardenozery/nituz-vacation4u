@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.createVacationController">
+   <children>
+      <Label layoutX="44.0" layoutY="204.0" prefHeight="21.0" prefWidth="83.0" text="Airline" />
+      <TextField fx:id="txtfld_origin" layoutX="193.0" layoutY="58.0" prefHeight="31.0" prefWidth="143.0" />
+      <Label layoutX="28.0" layoutY="58.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label layoutX="28.0" layoutY="100.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="154.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="199.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="251.0" prefHeight="30.0" prefWidth="1.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="300.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="352.0" prefHeight="30.0" prefWidth="9.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="386.0" layoutY="58.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="105.0" prefHeight="17.0" prefWidth="143.0" text="Departure Date" />
+      <DatePicker fx:id="datefld_departureDate" layoutX="193.0" layoutY="100.0" prefHeight="31.0" prefWidth="167.0" />
+      <CheckBox fx:id="checkfld_flightBackIncluded" layoutX="49.0" layoutY="159.0" mnemonicParsing="false" onAction="#showReturnDate" text="Including flight back" />
+      <Label fx:id="lbl_arrivalStar" layoutX="386.0" layoutY="100.0" text="*" textFill="RED" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_arrivalDate" disable="true" layoutX="406.0" layoutY="105.0" text="Arrival Date" />
+      <DatePicker fx:id="datefld_arrivalDate" disable="true" layoutX="544.0" layoutY="98.0" prefHeight="31.0" prefWidth="156.0" />
+      <Label layoutX="44.0" layoutY="63.0" prefHeight="21.0" prefWidth="83.0" text="Origin" />
+      <TextField fx:id="txtfld_airLine" layoutX="158.0" layoutY="199.0" prefHeight="31.0" prefWidth="175.0" />
+      <Label layoutX="404.0" layoutY="63.0" prefHeight="21.0" prefWidth="116.0" text="Destination" />
+      <TextField fx:id="txtfld_destination" layoutX="542.0" layoutY="58.0" prefHeight="31.0" prefWidth="136.0" />
+      <Label fx:id="lbl_markedFields" layoutX="38.0" layoutY="436.0" prefHeight="21.0" prefWidth="654.0" text="You must complete all the marked fields" visible="false" />
+      <Label layoutX="25.0" layoutY="14.0" prefHeight="21.0" prefWidth="324.0" text="* Required" textFill="RED" />
+      <Label layoutX="44.0" layoutY="256.0" prefHeight="21.0" prefWidth="203.0" text="Number of adult tickets" />
+      <TextField fx:id="txtfld_adultTicketsNumber" layoutX="253.0" layoutY="251.0" prefHeight="31.0" prefWidth="83.0" />
+      <Label layoutX="42.0" layoutY="305.0" prefHeight="21.0" prefWidth="210.0" text="Number of child tickets" />
+      <TextField fx:id="txtfld_childTicketsNumber" layoutX="253.0" layoutY="300.0" prefHeight="31.0" prefWidth="83.0" />
+      <Label layoutX="45.0" layoutY="356.0" prefHeight="21.0" prefWidth="203.0" text="Number of baby tickets" />
+      <TextField fx:id="txtfld_babyTicketsNumber" layoutX="253.0" layoutY="352.0" prefHeight="31.0" prefWidth="83.0" />
+      <ChoiceBox fx:id="cbxfld_vacationType" layoutX="549.0" layoutY="184.0" prefHeight="31.0" prefWidth="121.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Extreme" />
+               <String fx:value="Urban" />
+               <String fx:value="Exotic" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <Label layoutX="407.0" layoutY="189.0" prefHeight="17.0" prefWidth="143.0" text="Type of vacation" />
+      <CheckBox fx:id="checkfld_hotelIncluded" layoutX="406.0" layoutY="230.0" mnemonicParsing="false" onAction="#showHotelRank" text="Including hotel" />
+      <Label fx:id="lbl_hotelRank" disable="true" layoutX="407.0" layoutY="271.0" text="Hotel rank" />
+      <TextField fx:id="txtfld_hotelGrade" disable="true" layoutX="530.0" layoutY="267.0" prefHeight="31.0" prefWidth="63.0" />
+      <Label layoutX="406.0" layoutY="305.0" text="Description:" />
+      <TextField fx:id="txtfld_freeText" layoutX="404.0" layoutY="326.0" prefHeight="103.0" prefWidth="289.0" />
+      <Button layoutX="523.0" layoutY="445.0" mnemonicParsing="false" onAction="#changeToMainMenuScene" text="back" />
+      <Button layoutX="628.0" layoutY="445.0" mnemonicParsing="false" onAction="#CreateNewVacation" text="finish" />
+      <CheckBox fx:id="checkfld_luggageIncluded" layoutX="49.0" layoutY="392.0" mnemonicParsing="false" text="Luggage Included" />
+      <Label layoutX="29.0" layoutY="386.0" prefHeight="30.0" prefWidth="9.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="407.0" layoutY="149.0" text="Price($)" />
+      <Label layoutX="386.0" layoutY="144.0" text="*" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtfld_price" layoutX="546.0" layoutY="139.0" prefHeight="31.0" prefWidth="128.0" />
+   </children>
+</AnchorPane>

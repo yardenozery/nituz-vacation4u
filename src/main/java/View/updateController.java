@@ -39,6 +39,7 @@ public class updateController extends generalController {
             txtfld_userCity.setStyle("");
 
             checkUserParams(event, checkFields);
+            currentUserName = txtfld_userName.getText();
         }
         else{
             txtfld_userName.setStyle("-fx-border-width: 3; -fx-border-color: red");
@@ -51,6 +52,7 @@ public class updateController extends generalController {
      * the function check if the given username exist in the database
      */
     public void searchForUpdate(){
+        txtfld_userName.setText(currentUserName);
         search();
         if(searchsuccess){
             oldUserName = txtfld_userName.getText();

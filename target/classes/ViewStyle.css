@@ -1,12 +1,13 @@
 .root{
     -fx-background-size: cover;
-    -fx-background-color: linear-gradient(#fffeee,#9ab69f);
+    -fx-background-image: url("sand.jpg");
 }
 
 Button {
     -fx-text-fill: white;
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
+    -fx-font-size: 15;
     -fx-background-color: linear-gradient(#3fe6a9, #1f6291);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
@@ -20,3 +21,22 @@ Button:hover{
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
 }
+
+Label {
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+}
+
+TableView{
+    -fx-font-weight: bold;
+}
+
+CheckBox{
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+}
+
+TextField{
+    -fx-font-size: 18;
+}
+

@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 /**
  * The class describes the functions of the users use the system
@@ -25,7 +27,7 @@ public class Users {
      */
     private Pair<boolean[], Boolean> checkFields (String username,String password,String dateOfBirth,String firstName,String lastName,String city){
 
-        boolean[] checkFields = new boolean[6];
+        boolean[] checkFields = new boolean[7];
         Boolean check = false;
         if(password.length() < 8) checkFields[1] = true;
 
@@ -35,7 +37,20 @@ public class Users {
         if(lastName.equals("")) checkFields[4] = true;
         if(city.equals("")) checkFields[5] = true;
 
-        for(int i= 0; i<6; i++)
+
+        ZoneId zonedId = ZoneId.of( "Israel" );
+        String today = LocalDate.now( zonedId ).toString();
+        String[] stringtodayDateSplit = today.split("-");
+        int[] inttodayDateSplit = {Integer.parseInt(stringtodayDateSplit[0]), Integer.parseInt(stringtodayDateSplit[1]), Integer.parseInt(stringtodayDateSplit[2])};
+        String[] stringDateSplit = dateOfBirth.split("-");
+        int[] intDateSplit = {Integer.parseInt(stringDateSplit[0]), Integer.parseInt(stringDateSplit[1]), Integer.parseInt(stringDateSplit[2])};
+        if(((inttodayDateSplit[0] - intDateSplit[0]) <18) || (((inttodayDateSplit[0] - intDateSplit[0]) == 18) && (inttodayDateSplit[1] < intDateSplit[1])) ||
+                (((inttodayDateSplit[0] - intDateSplit[0]) == 18) && (inttodayDateSplit[1] == intDateSplit[1]) && (inttodayDateSplit[2] < intDateSplit[2]))){
+
+            checkFields[6] = true;
+        }
+
+        for(int i= 0; i<7; i++)
             if(checkFields[i] == true) check = true;
 
         return new Pair<>(checkFields, check);
@@ -46,6 +61,7 @@ public class Users {
 
         Pair<boolean[], Boolean> resultOfCheckFields = checkFields(username, password, dateOfBirth, firstName, lastName, city);
         if (resultOfCheckFields.getValue()) return resultOfCheckFields.getKey();
+
 
 
         String sql = "INSERT INTO Users(username,password,dateOfBirth,firstName,lastName,city) VALUES(?,?,?,?,?,?)";

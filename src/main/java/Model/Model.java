@@ -6,20 +6,29 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * The class implements the Imodel interface
  */
 public class Model implements Imodel {
 
-    Users user;
+    private Users user;
+    private Vacations vacation;
+    private Purchases purchase;
+    private Requestions requests;
+    private Confirmations confirmations;
 
     /**
      * A constructor which initialize the variable "Users" and apply the function "CreateDB"
      */
     public Model() {
-        user = new Users();
         this.CreateDB();
+        user = new Users();
+        vacation = new Vacations();
+        purchase = new Purchases();
+        requests = new Requestions();
+        confirmations = new Confirmations();
     }
 
     /**
@@ -32,8 +41,10 @@ public class Model implements Imodel {
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("The driver name is " + meta.getDriverName());
-                System.out.println("A new database has been created.");
+                //System.out.println("The driver name is " + meta.getDriverName());
+                //System.out.println("A new database has been created.");
+
+                // users table
                 String userTable = "CREATE TABLE IF NOT EXISTS Users(\n"
                         + "	username text PRIMARY KEY,\n"
                         + "	password text NOT NULL,\n"
@@ -42,6 +53,49 @@ public class Model implements Imodel {
                         + "	lastName text NOT NULL,\n"
                         + "	city text NOT NULL);";
                 createNewTable(url, userTable);
+
+                // vacations table
+                String vacationTable = "CREATE TABLE IF NOT EXISTS Vacations(\n"
+                        + "	vacationID integer PRIMARY KEY,\n"
+                        + "	airLine text NOT NULL,\n"
+                        + "	departureDate text NOT NULL,\n"
+                        + "	origin text NOT NULL,\n"
+                        + "	destination text NOT NULL,\n"
+                        + "	adultTicketsNumber integer NOT NULL,\n"
+                        + "	childTicketsNumber integer NOT NULL,\n"
+                        + "	babyTicketsNumber integer NOT NULL,\n"
+                        + "	flightBackIncluded text NOT NULL,\n"
+                        + "	arrivalDate text,\n"
+                        + "	luggageIncluded text NOT NULL,\n"
+                        + "	price integer NOT NULL,\n"
+                        + "	vacationType text,\n"
+                        + "	hotelIncluded text,\n"
+                        + "	hotelGrade text,\n"
+                        + "	userName text NOT NULL,\n"
+                        + "	freeText text);";
+                createNewTable(url, vacationTable);
+
+                // requests table
+                String requestsTable = "CREATE TABLE IF NOT EXISTS Requests(\n"
+                        + "	vacationID integer,\n"
+                        + "	seller text NOT NULL,\n"
+                        + "	buyer text NOT NULL,\n"
+                        + "	primary key (vacationID, buyer));";
+                createNewTable(url, requestsTable);
+
+                // confirmation table
+                String confirmationTable = "CREATE TABLE IF NOT EXISTS Confirmations(\n"
+                        + "	vacationID integer PRIMARY KEY,\n"
+                        + "	seller text NOT NULL,\n"
+                        + "	buyer text NOT NULL);";
+                createNewTable(url, confirmationTable);
+
+                // purchases table
+                String purchasesTable = "CREATE TABLE IF NOT EXISTS Purchases(\n"
+                        + "	vacationID integer PRIMARY KEY,\n"
+                        + "	seller text NOT NULL,\n"
+                        + "	buyer text NOT NULL);";
+                createNewTable(url, purchasesTable);
             }
 
         } catch (SQLException e) {
@@ -100,5 +154,65 @@ public class Model implements Imodel {
     public void DeleteUser(String userName) {
         user.DeleteUser(userName);
 
+    }
+
+    @Override
+    public ArrayList<String[]> SearchVacationByFields(String origin, String destination, String departureDate, String arrivalDate, String minPrice, String maxPrice){
+        return vacation.SearchVacationByFields(origin, destination, departureDate, arrivalDate, minPrice, maxPrice);
+    }
+
+    @Override
+    public boolean[] CreateNewVacation(String airLine, String departureDate, String origin, String destination, String adultTicketsNumber, String childTicketsNumber, String babyTicketsNumber, String flightBackIncluded, String arrivalDate, String luggageIncluded, String price, String vacationType, String hotelIncluded, String hotelGrade,String userName, String freeText) {
+        return vacation.CreateNewVacation(airLine, departureDate, origin, destination, adultTicketsNumber, childTicketsNumber, babyTicketsNumber, flightBackIncluded, arrivalDate, luggageIncluded, price, vacationType, hotelIncluded, hotelGrade, userName, freeText);
+    }
+
+    @Override
+    public boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv, Vacation vacation, String currentUserName){
+        return purchase.purchaseVacationByCreditCard(creditCardNumber, expirationDateMonth, expirationDateYear, cvv, vacation, currentUserName);
+    }
+
+    @Override
+    public void purchaseVacationByPaypal(Vacation vacation, String currentUserName){
+        purchase.purchaseVacationByPaypal(vacation, currentUserName);
+    }
+
+    @Override
+    public ArrayList<String[]> getRequests(String currentUserName){
+        return  requests.getRequests(currentUserName);
+    }
+
+    @Override
+    public String[] getVacation(String vacationID){
+        return requests.getVacation(vacationID);
+    }
+
+    @Override
+    public void confirmVacation(String[] vacation){
+        confirmations.confirmVacation(vacation);
+    }
+
+    @Override
+    public void rejectVacation(String[] vacation){
+        requests.rejectVacation(vacation);
+    }
+
+    @Override
+    public ArrayList<String[]> getConfirmations(String currentUserName){
+        return confirmations.getConfirmations(currentUserName);
+    }
+
+    @Override
+    public void addRequest(Vacation vacation, String currentUserName){
+        requests.addRequest(vacation, currentUserName);
+    }
+
+    @Override
+    public void removeVacation(Vacation vacation){
+        (this.vacation).removeVacation(vacation);
+    }
+
+    @Override
+    public void removeConfirmation(Vacation vacation, String currentUserName){
+        confirmations.removeConfirmation(vacation, currentUserName);
     }
 }
