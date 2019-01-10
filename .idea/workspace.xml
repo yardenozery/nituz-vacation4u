@@ -7,52 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/CashAriived.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/ExchangeConfirm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/ExchangeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Exchanges.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/WaitingForCash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/CashArrivedController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/ExchangeVacationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/MyVacationsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/CashArrived.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ExchangeVacation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/MyVacations.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyDB" beforeDir="false" afterPath="$PROJECT_DIR$/MyDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Confirmations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Confirmations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Imodel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Imodel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Purchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Purchases.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Vacations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Vacations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/BuyVacationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ChosenVacationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ChosenVacationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MailBoxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MailBoxController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/generalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/generalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/searchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/searchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/searchVacationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/searchVacationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ChosenVacation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChosenVacation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/buyVacation.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/paypalLogo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ChosenVacation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChosenVacation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Confirmations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Confirmations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Imodel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Imodel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Purchases.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Purchases.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Vacations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Vacations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BuyVacationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/ChosenVacationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ChosenVacationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/MailBoxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MailBoxController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/generalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/generalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/searchVacationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/searchVacationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/buyVacation.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/paypalLogo.png" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -119,7 +75,7 @@
       <file leaf-file-name="Exchanges.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Exchanges.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
+            <state relative-caret-position="2904">
               <caret line="136" column="44" selection-start-line="136" selection-start-column="44" selection-end-line="136" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -131,8 +87,8 @@
       <file leaf-file-name="Vacations.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Vacations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="89" column="39" lean-forward="true" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
+            <state relative-caret-position="286">
+              <caret line="356" column="31" lean-forward="true" selection-start-line="356" selection-start-column="31" selection-end-line="356" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -306,9 +262,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
+    <option name="x" value="-10" />
     <option name="width" value="825" />
-    <option name="height" value="1049" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -320,7 +276,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -382,6 +337,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -539,14 +495,16 @@
       <workItem from="1546619321513" duration="6965000" />
       <workItem from="1546873899646" duration="8936000" />
       <workItem from="1547110746759" duration="1457000" />
+      <workItem from="1547112568330" duration="291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144366000" />
+    <option name="totallyTimeSpent" value="144657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -557,8 +515,8 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.11310345" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20551725" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -568,8 +526,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -735,16 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#2746#2747#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
-            <element signature="e#4163#4164#0" expanded="true" />
-            <element signature="e#4217#4218#0" expanded="true" />
-            <element signature="e#4277#4278#0" expanded="true" />
-            <element signature="e#4330#4331#0" expanded="true" />
-            <element signature="e#4532#4533#0" expanded="true" />
-            <element signature="e#4574#4575#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -925,7 +873,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Exchanges.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state relative-caret-position="2904">
           <caret line="136" column="44" selection-start-line="136" selection-start-column="44" selection-end-line="136" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -935,8 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Vacations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="89" column="39" lean-forward="true" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
+        <state relative-caret-position="286">
+          <caret line="356" column="31" lean-forward="true" selection-start-line="356" selection-start-column="31" selection-end-line="356" selection-end-column="31" />
         </state>
       </provider>
     </entry>

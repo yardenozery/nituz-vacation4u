@@ -338,7 +338,8 @@ public class Vacations {
         try (Connection conn = Model.connect();
              PreparedStatement pstmtMaxID  = conn.prepareStatement(sqlCheckMaxID)) {
             ResultSet rsMaxID = pstmtMaxID.executeQuery();
-            //return (Integer) rsMaxID.getObject("vacationID")+1;
+            if(rsMaxID == null || rsMaxID.getObject(1) == null)
+                return 0;
             return (Integer) rsMaxID.getObject(1)+1;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -353,7 +354,8 @@ public class Vacations {
         try (Connection conn = Model.connect();
              PreparedStatement pstmtMaxID  = conn.prepareStatement(sqlCheckMaxID)) {
             ResultSet rsMaxID = pstmtMaxID.executeQuery();
-            //return (Integer) rsMaxID.getObject("vacationID")+1;
+            if(rsMaxID == null || rsMaxID.getObject(1) == null)
+                return 0;
             return (Integer) rsMaxID.getObject(1)+1;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
