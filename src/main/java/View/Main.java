@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = fxmlLoader.load(getClass().getClassLoader().getResource("HomePage.fxml").openStream());
-        primaryStage.setTitle("Vacation4U");
+        primaryStage.setTitle("EveryVacation4U");
         primaryStage.setScene(new Scene(root, 550, 275));
         root.getStylesheets().add(getClass().getClassLoader().getResource("ViewStyle.css").toExternalForm());
         Model model = new Model();
@@ -31,5 +31,3 @@ public class Main extends Application {
         launch(args);
     }
 }
-
-//-fx-background-color: linear-gradient(#fffeee,#9ab69f);

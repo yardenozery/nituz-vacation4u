@@ -119,57 +119,46 @@ public class MailBoxController extends generalController {
 
 
 
-    private void fillConfirmsTable(){
-        ArrayList<String[]> confirmations = controller.getConfirmations(currentUserName);
+   private void fillConfirmsTable(){
+       ArrayList<String[]> confirmations = controller.getConfirmations(currentUserName);
 
-        for(String[] vacation : confirmations){
-            Button viewVacationButton = new Button("View Vacation");
-            Button purchaseVacationButton = new Button("Purchase Vacation");
+       for(String[] vacation : confirmations){
+           Button viewVacationButton = new Button("View Vacation");
+           Button purchaseVacationButton = new Button("Purchase Vacation In Cash");
 
-            Confirm newConfirm = new Confirm(vacation[1], viewVacationButton, purchaseVacationButton);
+           Confirm newConfirm = new Confirm(vacation[1], viewVacationButton, purchaseVacationButton);
 
-            String[] newVacation = controller.getVacation(vacation[0]);
+           String[] newVacation = controller.getVacation(vacation[0]);
 
-            Vacation showVacation = new Vacation(newVacation[0],newVacation[1],newVacation[2],newVacation[3],newVacation[4],newVacation[5],newVacation[6],newVacation[7],
-                    newVacation[8],newVacation[9],newVacation[10],newVacation[11],newVacation[12],newVacation[13],newVacation[14],newVacation[15],newVacation[16], viewVacationButton);
+           Vacation showVacation = new Vacation(newVacation[0],newVacation[1],newVacation[2],newVacation[3],newVacation[4],newVacation[5],newVacation[6],newVacation[7],
+                   newVacation[8],newVacation[9],newVacation[10],newVacation[11],newVacation[12],newVacation[13],newVacation[14],newVacation[15],newVacation[16], viewVacationButton);
 
-            viewVacationButton.setOnAction(event ->
-            {
-                try{
-                    showChosenVacation(event, showVacation, false);
-                }
-                catch (Exception e)
-                {e.printStackTrace();}
-            });
+           viewVacationButton.setOnAction(event ->
+           {
+               try{
+                   showChosenVacation(event, showVacation, false);
+               }
+               catch (Exception e)
+               {e.printStackTrace();}
+           });
 
-            purchaseVacationButton.setOnAction(event ->
-            {
-                try{
-                    changeToBuyVacationScene(event, showVacation);
-                }
-                catch (Exception e)
-                {e.printStackTrace();}
-            });
+           purchaseVacationButton.setOnAction(event ->
+           {
+               try{
+                   payedVacation(event, showVacation);
+               }
+               catch (Exception e)
+               {e.printStackTrace();}
+           });
 
-            tbl_confirmations.getItems().add(newConfirm);
-        }
-    }
+           tbl_confirmations.getItems().add(newConfirm);
+       }
+   }
 
-    public void changeToBuyVacationScene(javafx.event.ActionEvent event, Vacation vacation) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getClassLoader().getResource("buyVacation.fxml").openStream());
-        root.getStylesheets().add(getClass().getClassLoader().getResource("ViewStyle.css").toExternalForm());
-        Stage stage = new Stage(StageStyle.DECORATED);
-        stage.setTitle("Purchase");
-        stage.setScene(new Scene(root, 667, 500));
-
-        BuyVacationController buyVacationController = loader.getController();
-        buyVacationController.setPurchaseVacation(stage, vacation);
-        changeToMainMenuScene(event);
-        stage.show();
-    }
-
-
-
+   public void payedVacation(javafx.event.ActionEvent event, Vacation vacation) throws Exception{
+       controller.addWaitingForCashVacation(vacation, currentUserName);
+       controller.removeConfirmation(vacation, currentUserName);
+       changeToMailboxScene(event);
+   }
 
 }

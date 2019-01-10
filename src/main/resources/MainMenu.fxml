@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.mainMenuController">
+<AnchorPane prefHeight="333.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.mainMenuController">
    <children>
       <Button layoutX="31.0" layoutY="126.0" mnemonicParsing="false" onAction="#changeToDeleteScene" prefHeight="31.0" prefWidth="124.0" text="delete user" />
       <Button layoutX="31.0" layoutY="45.0" mnemonicParsing="false" onAction="#changeToSearchScene" prefHeight="31.0" prefWidth="124.0" text="search user" />
@@ -11,6 +11,8 @@
       <Button layoutX="238.0" layoutY="45.0" mnemonicParsing="false" onAction="#changeToSearchVacationScene" prefHeight="31.0" prefWidth="124.0" text="search vacation" />
       <Button layoutX="31.0" layoutY="242.0" mnemonicParsing="false" onAction="#changeToHomePageScene" text="Log Out" />
       <Button layoutX="238.0" layoutY="89.0" mnemonicParsing="false" onAction="#changeToCreateVacation" prefHeight="31.0" prefWidth="124.0" text="create vacation" />
-      <Button layoutX="238.0" layoutY="126.0" mnemonicParsing="false" onAction="#changeToMailboxScene" prefHeight="31.0" prefWidth="124.0" text="Mailbox" />
+      <Button layoutX="430.0" layoutY="45.0" mnemonicParsing="false" onAction="#changeToMailboxScene" prefHeight="31.0" prefWidth="141.0" text="Purchase MailBox" />
+      <Button layoutX="430.0" layoutY="126.0" mnemonicParsing="false" onAction="#changeToCashArrivedScene" prefHeight="31.0" prefWidth="141.0" text="Cash arrived" />
+      <Button layoutX="430.0" layoutY="86.0" mnemonicParsing="false" onAction="#changeToExchangeScene" prefHeight="31.0" prefWidth="142.0" text="Exchange MailBox" />
    </children>
 </AnchorPane>

@@ -30,8 +30,8 @@ public class Controller {
         model.DeleteUser(userName);
     }
 
-    public ArrayList<String[]> SearchVacationByFields(String origin, String destination, String departureDate, String arrivalDate, String minPrice, String maxPrice){
-        return model.SearchVacationByFields(origin, destination, departureDate, arrivalDate, minPrice, maxPrice);
+    public ArrayList<String[]> SearchVacationByFields(String origin, String destination, String departureDate, String arrivalDate, String minPrice, String maxPrice, String currentUserName){
+        return model.SearchVacationByFields(origin, destination, departureDate, arrivalDate, minPrice, maxPrice, currentUserName);
     }
 
     public boolean[] CreateNewVacation(String airLine, String departureDate, String origin, String destination, String adultTicketsNumber, String childTicketsNumber,
@@ -40,13 +40,13 @@ public class Controller {
         return model.CreateNewVacation(airLine, departureDate, origin, destination, adultTicketsNumber, childTicketsNumber, babyTicketsNumber, flightBackIncluded, arrivalDate, luggageIncluded, price, vacationType, hotelIncluded, hotelGrade, userName, freeText);
     }
 
-    public boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv,Vacation vacation, String currentUserName){
-        return model.purchaseVacationByCreditCard(creditCardNumber, expirationDateMonth, expirationDateYear, cvv, vacation, currentUserName);
-    }
-
-    public void purchaseVacationByPaypal(Vacation vacation, String currentUserName){
-        model.purchaseVacationByPaypal(vacation, currentUserName);
-    }
+    //public boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv,Vacation vacation, String currentUserName){
+    //    return model.purchaseVacationByCreditCard(creditCardNumber, expirationDateMonth, expirationDateYear, cvv, vacation, currentUserName);
+    //}
+//
+    //public void purchaseVacationByPaypal(Vacation vacation, String currentUserName){
+    //    model.purchaseVacationByPaypal(vacation, currentUserName);
+    //}
 
     public ArrayList<String[]> getRequests(String currentUserName){
         return model.getRequests(currentUserName);
@@ -80,5 +80,47 @@ public class Controller {
         model.removeConfirmation(vacation, currentUserName);
     }
 
+    public void addWaitingForCashVacation(Vacation vacation, String currentUserName) {
+        model.addWaitingForCashVacation(vacation, currentUserName);
+    }
 
+    public void insertToPurchasesTable(Vacation vacation) {
+        model.insertToPurchasesTable(vacation);
+    }
+
+    public ArrayList<String[]> getCashArrivedVacations(String currentUserName) {
+        return  model.getCashArrivedVacations(currentUserName);
+    }
+
+    public void removeWaitingForCashVacation(Vacation vacation) {
+        model.removeWaitingForCashVacation(vacation);
+    }
+
+    public ArrayList<String[]> getExchangeRequests(String currentUserName) {
+        return model.getExchangeRequests(currentUserName);
+    }
+
+    public void confirmExchangeRequest(String[] vacation) {
+        model.confirmExchangeRequest(vacation);
+    }
+
+    public void rejectExchangeRequest(String[] vacation) {
+        model.rejectExchangeRequest(vacation);
+    }
+
+    public ArrayList<String[]> getExchangeConfirmations(String currentUserName) {
+        return model.getExchangeConfirmations(currentUserName);
+    }
+
+    public void okExchange(String[] vacation) {
+        model.okExchange(vacation);
+    }
+
+    public ArrayList<String[]> myVacations(String currentUserName) {
+        return model.myVacations(currentUserName);
+    }
+
+    public void requestForExchange(Vacation vacationIwant, String myVacationID, String currentUserName) {
+        model.requestForExchange(vacationIwant, myVacationID, currentUserName);
+    }
 }

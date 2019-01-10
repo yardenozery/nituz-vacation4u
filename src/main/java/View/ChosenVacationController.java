@@ -30,6 +30,7 @@ public class ChosenVacationController extends generalController{
     public javafx.scene.control.Label lbl_freeText;
     public javafx.scene.control.Label lbl_notLoggedIn;
     public javafx.scene.control.Button btn_request;
+    public javafx.scene.control.Button btn_exchange;
 
     public Vacation vacation;
     private Stage stage;
@@ -37,6 +38,7 @@ public class ChosenVacationController extends generalController{
     public void ShowVacation(javafx.event.ActionEvent event, Vacation vacation, boolean requestVisible){
 
         btn_request.setVisible(requestVisible);
+        btn_exchange.setVisible(requestVisible);
         if(event != null)
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         lbl_notLoggedIn.setVisible(false);
@@ -102,6 +104,23 @@ public class ChosenVacationController extends generalController{
         }
     }
 
+    public void showMyVacation(javafx.event.ActionEvent event) throws Exception{
+        if(currentUserName != null && !currentUserName.equals("")){
+            FXMLLoader loader = new FXMLLoader();
+            Parent root = loader.load(getClass().getClassLoader().getResource("MyVacations.fxml").openStream());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("ViewStyle.css").toExternalForm());
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("My Vacations");
+            stage.setScene(new Scene(root));
 
+            MyVacationsController myVacationsController = loader.getController();
+            myVacationsController.showMyVacation(vacation);
+            stage.show();
+            btn_exchange.setDisable(true);
+        }
+        else{
+            lbl_notLoggedIn.setVisible(true);
+        }
+    }
 
 }

@@ -1,37 +1,35 @@
 
 package Model;
 
-import View.showVacationsController;
 import javafx.util.Pair;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 
 public class Purchases {
 
-    //public showVacationsController.Vacation vacation;
 
-
-    public void purchaseVacationByPaypal(Vacation vacation, String currentUserName){
-        insertToPurchasesTable(vacation, currentUserName);
-        deleteFromVacationTable(vacation);
-    }
-
-
-    public boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv, Vacation vacation, String currentUserName){
-
-        Pair<boolean[], Boolean> resultOfCheckFields = checkFields(creditCardNumber, expirationDateMonth, expirationDateYear, cvv);
-        if (resultOfCheckFields.getValue()) return resultOfCheckFields.getKey();
-
-
-        insertToPurchasesTable(vacation, currentUserName);
-        deleteFromVacationTable(vacation);
-
-        return resultOfCheckFields.getKey();
-    }
+    //public void purchaseVacationByPaypal(Vacation vacation, String currentUserName){
+    //    insertToPurchasesTable(vacation, currentUserName);
+    //    deleteFromVacationTable(vacation);
+    //}
+//
+//
+    //public boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv, Vacation vacation, String currentUserName){
+//
+    //    Pair<boolean[], Boolean> resultOfCheckFields = checkFields(creditCardNumber, expirationDateMonth, expirationDateYear, cvv);
+    //    if (resultOfCheckFields.getValue()) return resultOfCheckFields.getKey();
+//
+//
+    //    insertToPurchasesTable(vacation, currentUserName);
+    //    deleteFromVacationTable(vacation);
+//
+    //    return resultOfCheckFields.getKey();
+    //}
 
     private Pair<boolean[], Boolean> checkFields (String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv){
 
@@ -91,7 +89,9 @@ public class Purchases {
         return new Pair<>(checkFields, check);
     }
 
-    private void insertToPurchasesTable(Vacation vacation, String currentUserName){
+    public void insertToPurchasesTable(Vacation vacation){
+
+        String buyer = getBuyer(vacation.getID());
 
         String sqlInsertToTable = "INSERT INTO Purchases(vacationID, seller, buyer) VALUES(?,?,?)";
         try (Connection conn = Model.connect();
@@ -99,12 +99,28 @@ public class Purchases {
 
             pstmtInsertToTable.setInt(1, Integer.parseInt(vacation.getID()));
             pstmtInsertToTable.setString(2, vacation.getUserName());
-            pstmtInsertToTable.setString(3, currentUserName);
+            pstmtInsertToTable.setString(3, buyer);
             pstmtInsertToTable.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private String getBuyer(String vacationID){
+        String buyer = "";
+        String sql = "SELECT buyer FROM WaitingForCash WHERE vacationID = ?";
+        try (Connection conn = Model.connect();
+             PreparedStatement pstmt  = conn.prepareStatement(sql)){
+
+            // set the value
+            pstmt.setString(1, vacationID);
+            ResultSet rs  = pstmt.executeQuery();
+            buyer = rs.getString(1);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return buyer;
     }
 
     private void deleteFromVacationTable(Vacation vacation){

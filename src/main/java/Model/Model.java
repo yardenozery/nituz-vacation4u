@@ -18,6 +18,8 @@ public class Model implements Imodel {
     private Purchases purchase;
     private Requestions requests;
     private Confirmations confirmations;
+    private WaitingForCash waitingForCash;
+    private Exchanges exchanges;
 
     /**
      * A constructor which initialize the variable "Users" and apply the function "CreateDB"
@@ -29,6 +31,8 @@ public class Model implements Imodel {
         purchase = new Purchases();
         requests = new Requestions();
         confirmations = new Confirmations();
+        waitingForCash = new WaitingForCash();
+        exchanges = new Exchanges();
     }
 
     /**
@@ -96,6 +100,24 @@ public class Model implements Imodel {
                         + "	seller text NOT NULL,\n"
                         + "	buyer text NOT NULL);";
                 createNewTable(url, purchasesTable);
+
+                // WaitingForCash table
+                String waitingForCash = "CREATE TABLE IF NOT EXISTS WaitingForCash(\n"
+                        + "	vacationID integer PRIMARY KEY,\n"
+                        + "	seller text NOT NULL,\n"
+                        + "	buyer text NOT NULL);";
+                createNewTable(url, waitingForCash);
+
+                // Exchanges table
+                String exchanges = "CREATE TABLE IF NOT EXISTS Exchanges(\n"
+                        + "	requestFromVacationID integer,\n"
+                        + "	requestFrom text NOT NULL,\n"
+                        + "	requestToVacationID integer,\n"
+                        + "	requestTo text NOT NULL,\n"
+                        + "	confirmYet text NOT NULL,\n"
+                        + "	executed text NOT NULL,\n"
+                        + "	primary key (requestFromVacationID, requestToVacationID));";
+                createNewTable(url, exchanges);
             }
 
         } catch (SQLException e) {
@@ -157,8 +179,8 @@ public class Model implements Imodel {
     }
 
     @Override
-    public ArrayList<String[]> SearchVacationByFields(String origin, String destination, String departureDate, String arrivalDate, String minPrice, String maxPrice){
-        return vacation.SearchVacationByFields(origin, destination, departureDate, arrivalDate, minPrice, maxPrice);
+    public ArrayList<String[]> SearchVacationByFields(String origin, String destination, String departureDate, String arrivalDate, String minPrice, String maxPrice, String currentUserName){
+        return vacation.SearchVacationByFields(origin, destination, departureDate, arrivalDate, minPrice, maxPrice, currentUserName);
     }
 
     @Override
@@ -166,15 +188,15 @@ public class Model implements Imodel {
         return vacation.CreateNewVacation(airLine, departureDate, origin, destination, adultTicketsNumber, childTicketsNumber, babyTicketsNumber, flightBackIncluded, arrivalDate, luggageIncluded, price, vacationType, hotelIncluded, hotelGrade, userName, freeText);
     }
 
-    @Override
-    public boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv, Vacation vacation, String currentUserName){
-        return purchase.purchaseVacationByCreditCard(creditCardNumber, expirationDateMonth, expirationDateYear, cvv, vacation, currentUserName);
-    }
-
-    @Override
-    public void purchaseVacationByPaypal(Vacation vacation, String currentUserName){
-        purchase.purchaseVacationByPaypal(vacation, currentUserName);
-    }
+    //@Override
+    //public boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv, Vacation vacation, String currentUserName){
+    //    return purchase.purchaseVacationByCreditCard(creditCardNumber, expirationDateMonth, expirationDateYear, cvv, vacation, currentUserName);
+    //}
+//
+    //@Override
+    //public void purchaseVacationByPaypal(Vacation vacation, String currentUserName){
+    //    purchase.purchaseVacationByPaypal(vacation, currentUserName);
+    //}
 
     @Override
     public ArrayList<String[]> getRequests(String currentUserName){
@@ -214,5 +236,60 @@ public class Model implements Imodel {
     @Override
     public void removeConfirmation(Vacation vacation, String currentUserName){
         confirmations.removeConfirmation(vacation, currentUserName);
+    }
+
+    @Override
+    public void addWaitingForCashVacation(Vacation vacation, String currentUserName) {
+        waitingForCash.addWaitingForCashVacation(vacation, currentUserName);
+    }
+
+    @Override
+    public void insertToPurchasesTable(Vacation vacation) {
+        purchase.insertToPurchasesTable(vacation);
+    }
+
+    @Override
+    public ArrayList<String[]> getCashArrivedVacations(String currentUserName) {
+        return waitingForCash.getCashArrivedVacations(currentUserName);
+    }
+
+    @Override
+    public void removeWaitingForCashVacation(Vacation vacation) {
+        waitingForCash.removeWaitingForCashVacation(vacation);
+    }
+
+    @Override
+    public ArrayList<String[]> getExchangeRequests(String currentUserName) {
+        return exchanges.getExchangeRequests(currentUserName);
+    }
+
+    @Override
+    public void confirmExchangeRequest(String[] vacation) {
+        exchanges.confirmExchangeRequest(vacation);
+    }
+
+    @Override
+    public void rejectExchangeRequest(String[] vacation) {
+        exchanges.rejectExchangeRequest(vacation);
+    }
+
+    @Override
+    public ArrayList<String[]> getExchangeConfirmations(String currentUserName) {
+        return exchanges.getExchangeConfirmations(currentUserName);
+    }
+
+    @Override
+    public void okExchange(String[] vacation) {
+        exchanges.okExchange(vacation);
+    }
+
+    @Override
+    public ArrayList<String[]> myVacations(String currentUserName) {
+        return vacation.myVacations(currentUserName);
+    }
+
+    @Override
+    public void requestForExchange(Vacation vacationIwant, String myVacationID, String currentUserName) {
+        exchanges.requestForExchange(vacationIwant, myVacationID, currentUserName);
     }
 }

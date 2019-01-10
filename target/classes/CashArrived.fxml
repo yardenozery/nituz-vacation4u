@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="350.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CashArrivedController">
+   <children>
+      <TableView fx:id="tbl_cashArrived" layoutY="7.0" prefHeight="284.0" prefWidth="453.0">
+        <columns>
+          <TableColumn fx:id="tbl_col_buyer" prefWidth="108.0" text="Buyer" />
+          <TableColumn fx:id="tbl_col_viewVacation" prefWidth="135.0" />
+            <TableColumn fx:id="tbl_col_confirm" prefWidth="199.0" />
+        </columns>
+      </TableView>
+      <Button layoutX="35.0" layoutY="308.0" mnemonicParsing="false" onAction="#changeToMainMenuScene" text="Back" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<TableView fx:id="tbl_myVacations" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyVacationsController">
+  <columns>
+    <TableColumn fx:id="tbl_col_origin" prefWidth="177.0" text="Origin" />
+    <TableColumn fx:id="tbl_col_destination" prefWidth="188.0" text="Destination" />
+      <TableColumn fx:id="tbl_col_departureDate" prefWidth="179.0" text="Departure Date" />
+      <TableColumn fx:id="tbl_col_viewVacaion" prefWidth="168.0" />
+      <TableColumn fx:id="tbl_col_exchange" prefWidth="138.0" />
+  </columns>
+</TableView>

@@ -36,7 +36,7 @@ public interface Imodel {
      * The function allows to search vacations by destination
      * @return The vacations in the given destination
      */
-    ArrayList<String[]> SearchVacationByFields(String origin, String destination, String departureDate, String arrivalDate, String minPrice, String maxPrice);
+    ArrayList<String[]> SearchVacationByFields(String origin, String destination, String departureDate, String arrivalDate, String minPrice, String maxPrice, String currentUserName);
 
     /**
      * The function creates a new vacation in the system
@@ -47,9 +47,9 @@ public interface Imodel {
                                 String babyTicketsNumber, String flightBackIncluded, String arrivalDate, String luggageIncluded, String price, String vacationType,
                                 String hotelIncluded, String hotelGrade,String userName, String freeText);
 
-    boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv, Vacation vacation, String currentUserName);
+    //boolean[] purchaseVacationByCreditCard(String creditCardNumber, String expirationDateMonth, String expirationDateYear, String cvv, Vacation vacation, String currentUserName);
 
-    void purchaseVacationByPaypal(Vacation vacation, String currentUserName);
+    //void purchaseVacationByPaypal(Vacation vacation, String currentUserName);
 
     ArrayList<String[]> getRequests(String currentUserName);
 
@@ -66,4 +66,26 @@ public interface Imodel {
     void removeVacation(Vacation vacation);
 
     void removeConfirmation(Vacation vacation, String currentUserName);
+
+    void removeWaitingForCashVacation(Vacation vacation);
+
+    void addWaitingForCashVacation(Vacation vacation, String currentUserName);
+
+    void insertToPurchasesTable(Vacation vacation);
+
+    ArrayList<String[]> getCashArrivedVacations(String currentUserName);
+
+    ArrayList<String[]> getExchangeRequests(String currentUserName);
+
+    void confirmExchangeRequest(String[] vacation);
+
+    void rejectExchangeRequest(String[] vacation);
+
+    ArrayList<String[]> getExchangeConfirmations(String currentUserName);
+
+    void okExchange(String[] vacation);
+
+    ArrayList<String[]> myVacations(String currentUserName);
+
+    void requestForExchange(Vacation vacationIwant, String myVacationID, String currentUserName);
 }

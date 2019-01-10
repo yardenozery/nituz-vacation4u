@@ -2,6 +2,8 @@ package View;
 
 import Controller.Controller;
 import Model.Vacation;
+import Model.WaitingForCash;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -94,7 +96,7 @@ public abstract class generalController {
     public void changeToMainMenuScene(javafx.event.ActionEvent event) throws IOException {
         Parent addSceneParent = FXMLLoader.load(getClass().getClassLoader().getResource("MainMenu.fxml"));
         addSceneParent.getStylesheets().add(getClass().getClassLoader().getResource("ViewStyle.css").toExternalForm());
-        Scene addScene = new Scene(addSceneParent, 550, 275);
+        Scene addScene = new Scene(addSceneParent, 600, 275);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(addScene);
         window.show();
@@ -189,6 +191,30 @@ public abstract class generalController {
         window.setScene(addScene);
         MailBoxController mailBoxController = loader.getController();
         mailBoxController.showRequests(window);
+        window.show();
+    }
+
+    public void changeToCashArrivedScene(javafx.event.ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getClassLoader().getResource("CashArrived.fxml").openStream());
+        root.getStylesheets().add(getClass().getClassLoader().getResource("ViewStyle.css").toExternalForm());
+        Scene addScene = new Scene(root, 453, 350);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(addScene);
+        CashArrivedController sashArrivedController = loader.getController();
+        sashArrivedController.showCashArrived(window);
+        window.show();
+    }
+
+    public void changeToExchangeScene(javafx.event.ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getClassLoader().getResource("ExchangeVacation.fxml").openStream());
+        root.getStylesheets().add(getClass().getClassLoader().getResource("ViewStyle.css").toExternalForm());
+        Scene addScene = new Scene(root, 713, 703);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(addScene);
+        ExchangeVacationController exchangeVacationController = loader.getController();
+        exchangeVacationController.showExchanges(window);
         window.show();
     }
 

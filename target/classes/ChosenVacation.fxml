@@ -43,8 +43,8 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Button fx:id="btn_request" layoutX="664.0" layoutY="532.0" mnemonicParsing="false" onAction="#requestSent" text="Request for purchse" />
-      <Button layoutX="50.0" layoutY="544.0" mnemonicParsing="false" text="Contact Seller" />
+      <Button fx:id="btn_request" layoutX="662.0" layoutY="491.0" mnemonicParsing="false" onAction="#requestSent" prefHeight="31.0" prefWidth="180.0" text="Request for purchse" />
+      <Button layoutX="21.0" layoutY="544.0" mnemonicParsing="false" text="Contact Seller" />
       <Label fx:id="lbl_luggageIncluded" layoutX="440.0" layoutY="169.0" prefHeight="27.0" prefWidth="362.0" text="lbl_luggageIncluded">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -69,14 +69,15 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label fx:id="lbl_freeText" layoutX="50.0" layoutY="443.0" prefHeight="71.0" prefWidth="847.0" text="lbl_freeText">
+      <Label fx:id="lbl_freeText" layoutX="50.0" layoutY="443.0" prefHeight="80.0" prefWidth="598.0" text="lbl_freeText">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label fx:id="lbl_notLoggedIn" layoutX="293.0" layoutY="525.0" prefHeight="38.0" prefWidth="362.0" text="You must be logged in to purchase a vacation" textFill="RED" visible="false">
+      <Label fx:id="lbl_notLoggedIn" layoutX="147.0" layoutY="541.0" prefHeight="38.0" prefWidth="506.0" text="You must be logged in to purchase a vacation" textFill="RED">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
+      <Button fx:id="btn_exchange" layoutX="662.0" layoutY="545.0" mnemonicParsing="false" onAction="#showMyVacation" prefHeight="31.0" prefWidth="180.0" text="Request for exchange" />
    </children>
 </AnchorPane>

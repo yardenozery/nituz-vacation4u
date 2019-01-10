@@ -27,16 +27,9 @@ public class searchVacationController extends generalController {
             arrivalDate = datefld_arrivalDate.getValue().toString();
 
         ArrayList<String[]> vacations = controller.SearchVacationByFields(txtfld_origin.getText(), txtfld_destination.getText(), departureDate,
-                                                                                arrivalDate, txtfld_minPrice.getText(), txtfld_maxPrice.getText());
+                                                                                arrivalDate, txtfld_minPrice.getText(), txtfld_maxPrice.getText(), currentUserName);
 
         ShowVacations(vacations);
-
-        //for (String[] vacation: vacations) {
-        //    for (String param: vacation) {
-        //        System.out.print(param + " ");
-        //    }
-        //    System.out.println();
-        //}
     }
 
     public void back(javafx.event.ActionEvent event) throws Exception{

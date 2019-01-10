@@ -23,6 +23,19 @@ public class Confirmations {
             System.out.println(e.getMessage());
         }
         removeAllRequests(vacationID);
+        removeAllExchangeRequests(vacationID);
+    }
+
+    private void removeAllExchangeRequests(Integer vacationID) {
+        String sql = "DELETE FROM Exchanges  WHERE requestToVacationID = ?";
+        try (Connection conn = Model.connect(); PreparedStatement pstmtInsertToTable  = conn.prepareStatement(sql)){
+
+            pstmtInsertToTable.setInt(1, vacationID);
+            pstmtInsertToTable.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void removeAllRequests(Integer vacationID){
